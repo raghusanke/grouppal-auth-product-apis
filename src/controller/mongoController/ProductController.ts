@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
-import Product from "../models/Products";
-import { STATUS_CODES } from "../constants/statusCodes";
-import { MESSAGES } from "../constants/messages";
-import { CustomRequest } from "../types/CustomRequest";
-import redisClient from '../config/redis';
+import Product from "../../models/Products";
+import { STATUS_CODES } from "../../constants/statusCodes";
+import { MESSAGES } from "../../constants/messages";
+import { CustomRequest } from "../../types/CustomRequest";
+import redisClient from '../../config/redis';
 
 export const createProduct = async (req: CustomRequest, res: Response, next: NextFunction) => {
   try {

@@ -18,7 +18,7 @@
 // };
 
 import { Response, NextFunction } from 'express';
-import { AuthRequest } from './auth.middleware'
+import { AuthRequest } from './mysql.auth.middleware'
 import { mysqlDB } from '../config/mysqldb';
 import { RowDataPacket } from 'mysql2';
 

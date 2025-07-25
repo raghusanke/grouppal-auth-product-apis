@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
-import { mysqlDB } from '../config/mysqldb';
-import { AuthRequest } from '../middleware/auth.middleware';
+import { mysqlDB } from '../../config/mysqldb';
+import { AuthRequest } from '../../middleware/mysql.auth.middleware';
 import { RowDataPacket, ResultSetHeader } from 'mysql2';
-import { STATUS_CODES } from '../constants/statusCodes';
-import { MESSAGES } from '../constants/messages';
-import { getPagination } from '../utils/pagination';
-import { countAllProducts, paginatedProductList, insertProduct } from '../db/product.queries';
+import { STATUS_CODES } from '../../constants/statusCodes';
+import { MESSAGES } from '../../constants/messages';
+import { getPagination } from '../../utils/pagination';
+import { countAllProducts, paginatedProductList, insertProduct } from '../../mysqlQueries/product.queries';
 
 export const addProduct = (req: AuthRequest, res: Response) => {
   if (!req.user || req.user.role !== 'admin') {

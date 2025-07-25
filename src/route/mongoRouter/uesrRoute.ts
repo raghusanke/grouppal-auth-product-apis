@@ -1,6 +1,6 @@
 import express from 'express';
-import { signup, login, getProfile } from '../controller/userController';
-import { authMiddleware } from '../middleware/authMiddleware';
+import { signup, login, getProfile } from '../../controller/mongoController/userController';
+import { authMiddleware } from '../../middleware/authMiddleware';
 
 const router = express.Router();
 router.post('/signup', signup);

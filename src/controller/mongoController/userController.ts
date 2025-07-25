@@ -1,12 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import User, { UserType } from '../models/User';
+import User, { UserType } from '../../models/User';
 import dotenv from 'dotenv';
-import { ApiError } from '../utils/apiError';
-import { MESSAGES } from '../constants/messages';
-import { STATUS_CODES } from '../constants/statusCodes';
-import redisClient from '../config/redis';
+import { ApiError } from '../../utils/apiError';
+import { MESSAGES } from '../../constants/messages';
+import { STATUS_CODES } from '../../constants/statusCodes';
+import redisClient from '../../config/redis';
 
 dotenv.config();
 const SECRET_KEY = process.env.JWT_SECRET!;
@@ -101,18 +101,6 @@ export const getProfile = async (req: Request, res: Response, next: NextFunction
     next(error);
   }
 };
-// export const getAllUsers = async (req: Request, res: Response, next: NextFunction) => {
-//   try {
-//     const users = await User.find();
-//     res.status(STATUS_CODES.OK).json({
-//       success: true,
-//       message: MESSAGES.AUTH.PROFILE_SUCCESS,
-//       users,
-//     });
-//   } catch (error) {
-//     next(error);
-//   }
-// };
 
 export const logout = async (req: Request, res: Response, next: NextFunction) => {
   try {

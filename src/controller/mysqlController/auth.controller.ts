@@ -1,20 +1,20 @@
 import { NextFunction, Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { mysqlDB } from '../config/mysqldb';
+import { mysqlDB } from '../../config/mysqldb';
 import { RowDataPacket } from 'mysql2';
-import { AuthRequest } from '../middleware/auth.middleware';
-import { MESSAGES } from '../constants/messages';
-import { STATUS_CODES } from '../constants/statusCodes';
+import { AuthRequest } from '../../middleware/mysql.auth.middleware';
+import { MESSAGES } from '../../constants/messages';
+import { STATUS_CODES } from '../../constants/statusCodes';
 import {
   checkUserExists,
   insertUser,
   getUserByEmail,
   getAllUsersQuery,
-} from '../db/user.queries';
-import redisClient from '../config/redis';
-import User from '../models/User';
-import { ApiError } from '../utils/apiError';
+} from '../../mysqlQueries/user.queries';
+import redisClient from '../../config/redis';
+import User from '../../models/User';
+import { ApiError } from '../../utils/apiError';
 
 export const register = (req: Request, res: Response) => {
   const { username, email, password, address, phone, age, role = 'user' } = req.body;

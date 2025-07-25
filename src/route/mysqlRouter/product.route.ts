@@ -1,5 +1,5 @@
 import express from 'express';
-import { addProduct, getAllProducts } from '../controller/product.controller';
+import { addProduct, getAllProducts } from '../controller/mysqlController/product.controller';
 import { authenticate } from '../middleware/auth.middleware';
 import { isAdmin } from '../middleware/isAdmin.middleware';
 

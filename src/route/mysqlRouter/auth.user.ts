@@ -1,6 +1,6 @@
 import express from 'express';
-import { register, login,getAllUsers } from '../controller/auth.controller';
-import { authenticate } from '../middleware/auth.middleware';
+import { register, login,getAllUsers } from '../../controller/mysqlController/auth.controller';
+import { authenticate } from '../../middleware/mysql.auth.middleware';
 
 const router = express.Router();
 

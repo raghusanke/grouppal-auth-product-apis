@@ -5,9 +5,9 @@ import {
   getProductById,
   deleteProduct,
   updateProduct,
-} from '../controller/ProductController';
-import { authMiddleware } from '../middleware/authMiddleware';
-import { isAdmin } from '../middleware/isAdmin.middleware';
+} from '../../controller/mongoController/ProductController';
+import { authMiddleware } from '../../middleware/authMiddleware';
+import { isAdmin } from '../../middleware/isAdmin.middleware';
 
 const router = Router();
 
